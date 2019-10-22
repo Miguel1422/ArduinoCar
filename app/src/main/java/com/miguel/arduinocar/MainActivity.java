@@ -87,8 +87,11 @@ public class MainActivity extends AppCompatActivity {
         }).execute(mac);
     }
 
+    private String anterior = "x";
     private void sendBt(String content) {
         if (btSocket == null) return;
+        if(anterior.equals(content)) return;
+        anterior = content;
         try {
             Log.d("Sending", "Sending: " + content);
             btSocket.getOutputStream().write(content.getBytes());
