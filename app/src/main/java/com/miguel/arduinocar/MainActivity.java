@@ -105,7 +105,9 @@ public class MainActivity extends AppCompatActivity {
     protected void onStop() {
         super.onStop();
         try {
-            btSocket.close();
+            if(btSocket != null) {
+                btSocket.close();
+            }
             btSocket = null;
         } catch (IOException e) {
             e.printStackTrace();
